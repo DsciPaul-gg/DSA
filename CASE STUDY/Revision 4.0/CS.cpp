@@ -338,6 +338,8 @@ void displayProperties() {
     const int statusWidth = 20;
     const int contactWidth = 20;
 
+    cout << string(idWidth + addressWidth + ownerWidth + priceWidth + typeWidth + contactWidth + statusWidth + 6, '-') << endl;
+
     cout << BOLD << CYAN
          << padTo("ID", idWidth) << "|"
          << padTo("Address", addressWidth) << "|"
@@ -347,7 +349,7 @@ void displayProperties() {
          << padTo("Contact", contactWidth) << "|"
          << padTo("Status", statusWidth) << RESET << endl;
 
-    cout << string(idWidth + addressWidth + ownerWidth + priceWidth + typeWidth + contactWidth + statusWidth + 6, '=') << endl;
+    cout << string(idWidth + addressWidth + ownerWidth + priceWidth + typeWidth + contactWidth + statusWidth + 6, '-') << endl;
 
     for (const auto& property : properties) {
         stringstream priceStream;
@@ -361,6 +363,8 @@ void displayProperties() {
              << padTo(property.contactNumber, contactWidth) << "|"
              << padTo(property.status, statusWidth) << endl;
     }
+    
+    cout << string(idWidth + addressWidth + ownerWidth + priceWidth + typeWidth + contactWidth + statusWidth + 6, '-') << endl;
 }
 
 void updateProperty() {
@@ -375,6 +379,8 @@ void updateProperty() {
     const int statusWidth = 20;
     const int contactWidth = 20;
 
+    cout << string(idWidth + addressWidth + ownerWidth + priceWidth + typeWidth + contactWidth + statusWidth + 6, '-') << endl;
+
     cout << BOLD << CYAN
          << padTo("ID", idWidth) << "|"
          << padTo("Address", addressWidth) << "|"
@@ -384,7 +390,7 @@ void updateProperty() {
          << padTo("Contact", contactWidth) << "|"
          << padTo("Status", statusWidth) << RESET << endl;
 
-    cout << string(idWidth + addressWidth + ownerWidth + priceWidth + typeWidth + contactWidth + statusWidth + 6, '=') << endl;
+    cout << string(idWidth + addressWidth + ownerWidth + priceWidth + typeWidth + contactWidth + statusWidth + 6, '-') << endl;
 
     for (const auto& property : properties) {
         stringstream priceStream;
@@ -398,6 +404,8 @@ void updateProperty() {
              << padTo(property.contactNumber, contactWidth) << "|"
              << padTo(property.status, statusWidth) << endl;
     }
+    
+    cout << string(idWidth + addressWidth + ownerWidth + priceWidth + typeWidth + contactWidth + statusWidth + 6, '-') << endl;
 
     cout << endl;
 
@@ -446,6 +454,8 @@ void deleteProperty() {
     const int statusWidth = 20;
     const int contactWidth = 20;
 
+    cout << string(idWidth + addressWidth + ownerWidth + priceWidth + typeWidth + contactWidth + statusWidth + 6, '-') << endl;
+
     cout << BOLD << CYAN
          << padTo("ID", idWidth) << "|"
          << padTo("Address", addressWidth) << "|"
@@ -455,7 +465,7 @@ void deleteProperty() {
          << padTo("Contact", contactWidth) << "|"
          << padTo("Status", statusWidth) << RESET << endl;
 
-    cout << string(idWidth + addressWidth + ownerWidth + priceWidth + typeWidth + contactWidth + statusWidth + 6, '=') << endl;
+    cout << string(idWidth + addressWidth + ownerWidth + priceWidth + typeWidth + contactWidth + statusWidth + 6, '-') << endl;
 
     for (const auto& property : properties) {
         stringstream priceStream;
@@ -469,6 +479,8 @@ void deleteProperty() {
              << padTo(property.contactNumber, contactWidth) << "|"
              << padTo(property.status, statusWidth) << endl;
     }
+    
+    cout << string(idWidth + addressWidth + ownerWidth + priceWidth + typeWidth + contactWidth + statusWidth + 6, '-') << endl;
 
     cout << endl;
 
@@ -507,10 +519,10 @@ void searchProperties() {
     string input;
     bool continueSearching = true;
 
-    cout << "\n\t\tEnter the letter 'M' or 'm' to go back to the Main Menu" << endl << endl;
-
     while (continueSearching) {
+        clearScreen();
         filteredProperties.clear();
+        cout << BOLD << CYAN <<"\n\t\tEnter the letter 'M' or 'm' to go back to the Main Menu\n\n" << RESET;
         cout << BOLD << YELLOW << "\tSearch by:\n\t1. Price Range\n\t2. Type\n\t3. Status\n" << RESET;
 
         while (true) {
@@ -600,6 +612,8 @@ void searchProperties() {
             const int statusWidth = 20;
             const int contactWidth = 20;
 
+            cout << string(idWidth + addressWidth + ownerWidth + priceWidth + typeWidth + contactWidth + statusWidth + 6, '-') << endl;
+
             cout << BOLD << CYAN
                  << padTo("ID", idWidth) << "|"
                  << padTo("Address", addressWidth) << "|"
@@ -609,20 +623,22 @@ void searchProperties() {
                  << padTo("Contact", contactWidth) << "|"
                  << padTo("Status", statusWidth) << RESET << endl;
 
-            cout << string(idWidth + addressWidth + ownerWidth + priceWidth + typeWidth + contactWidth + statusWidth + 6, '=') << endl;
+            cout << string(idWidth + addressWidth + ownerWidth + priceWidth + typeWidth + contactWidth + statusWidth + 6, '-') << endl;
 
-            for (const auto& property : filteredProperties) {
+                for (const auto& property : properties) {
                 stringstream priceStream;
                 priceStream << fixed << setprecision(2) << property.price;
 
-                cout << padTo(to_string(property.id), idWidth) << "|"
-                     << padTo(property.address, addressWidth) << "|"
-                     << padTo(property.ownerName, ownerWidth) << "|"
-                     << padTo(priceStream.str(), priceWidth) << "|"
-                     << padTo(property.type, typeWidth) << "|"
-                     << padTo(property.contactNumber, contactWidth) << "|"
-                     << padTo(property.status, statusWidth) << endl;
-            }
+            cout << padTo(to_string(property.id), idWidth) << "|"
+                 << padTo(property.address, addressWidth) << "|"
+                 << padTo(property.ownerName, ownerWidth) << "|"
+                 << padTo(priceStream.str(), priceWidth) << "|"
+                 << padTo(property.type, typeWidth) << "|"
+                 << padTo(property.contactNumber, contactWidth) << "|"
+                 << padTo(property.status, statusWidth) << endl;
+            }   
+    
+            cout << string(idWidth + addressWidth + ownerWidth + priceWidth + typeWidth + contactWidth + statusWidth + 6, '-') << endl;
         }
 
         while (true) {
